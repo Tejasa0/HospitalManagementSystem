@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title> Cancel Appointments</title>
+	<style>
+			table,
+			th,
+			td {
+				border: 1px solid black;
+				padding: 3px;
+				text-align: center;
+			}
+	
+			table {
+				border-spacing: 5px;
+				border-collapse: collapse;
+			}
+			tr:nth-child(even) {background-color: #f2f2f2;}
+	
+	
+			/* Unvisited link */
+			a {
+				color: blue;
+				text-decoration: none;
+				/* Remove default underline */
+				cursor: pointer;
+				/* Change cursor style */
+			}
+	
+			/* Visited link */
+			a:visited {
+				color: purple;
+			}
+	
+			/* Hover state */
+			a:hover {
+				color: darkblue;
+				/* Change color on hover */
+				text-decoration: underline;
+				/* Add underline on hover */
+			}
+	
+			/* Base styles */
+			a.button {
+				display: inline-block;
+				padding: 10px 20px;
+				text-align: center;
+				text-decoration: none;
+				border-radius: 5px;
+				cursor: pointer;
+				font-weight: bold;
+				transition: background-color 0.3s ease, color 0.3s ease;
+			}
+	
+			/* Default state */
+			a.button {
+				background-color: #4CAF50;
+				/* Green */
+				color: white;
+			}
+	
+			/* Hover state */
+			a.button:hover {
+				background-color: white;
+				color: #4CAF50;
+				/* Green */
+			}
+	
+			/* Active state (when clicked) */
+			a.button:active {
+				background-color: #45a049;
+				/* Darker green */
+			}
+			</style>
+</head>
+
+<body style="background-color:#D9EEE1 !important;">
+	
+	<H1 align="center" style="background-color:black ;color:white;">JAY BABAJI HOSPITAL</H1>
+	<hr>
+	<hr>
+			<a class="button" th:href="@{/patients}">Homepage</a>
+			 <hr>
+	<div align="center">
+		<h1>Cancel Appointment</h1>
+		<br />
+		<form action="#" th:action="@{/cancel}" th:object="${appointment}">
+
+			<table border="0" cellpadding="10">
+				<tr>
+					<td>Appointment ID:</td>
+					<td><input type="text" th:field="*{appointment_id}" required/></td>
+				</tr>
+
+				<tr>
+					<td colspan="2"><button type="submit">Confirm</button> </td>
+				</tr>
+			</table>
+			<div th:if="${message}" th:text="${message}" th:class="${'alert ' + alertClass}"></div>
+		</form>
+	</div>
+</body>
+
+</html>

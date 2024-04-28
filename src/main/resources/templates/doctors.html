@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<style>
+		a.button {
+			display: inline-block;
+			padding: 10px 20px;
+			text-align: center;
+			text-decoration: none;
+			border-radius: 5px;
+			cursor: pointer;
+			font-weight: bold;
+			transition: background-color 0.3s ease, color 0.3s ease;
+		}
+
+		a.button {
+			background-color: #4CAF50;
+			/* Green */
+			color: white;
+		}
+
+		/* Hover state */
+		a.button:hover {
+			background-color: white;
+			color: #4CAF50;
+			/* Green */
+		}
+
+		/* Active state (when clicked) */
+		a.button:active {
+			background-color: #45a049;
+			/* Darker green */
+		}
+	</style>
+	<title>Patient profile</title>
+</head>
+
+<body style="background-color:#D9EEE1 !important;">
+	<hr>
+	<H1 align="center" style="background-color:black ;color:white;">JAY BABAJI HOSPITAL</H1>
+
+	<hr>
+	<div style="text-align:right">
+		Hello! DR: <span style="text-transform:uppercase" th:text="${username}"></span> <br>
+		<br>
+		<form action=# th:action="@{/logout}">
+			<input type="submit" value="Log Out">
+		</form>
+	</div>
+	<!--<a class="button" th:href="#">Schedule</a>-->
+	<a class="button" th:href="@{doctors/doctorAppointments}">Appointments</a>
+</body>
+
+</html>

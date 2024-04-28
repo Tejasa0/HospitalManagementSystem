@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Your appointments</title>
+<style>
+table,th,td{
+border: 1px solid black;
+padding: 5px;
+text-align: center;
+}
+table{
+border-spacing: 10px;
+}
+a.button {
+			display: inline-block;
+			padding: 10px 20px;
+			text-align: center;
+			text-decoration: none;
+			border-radius: 5px;
+			cursor: pointer;
+			font-weight: bold;
+			transition: background-color 0.3s ease, color 0.3s ease;
+		}
+
+		a.button {
+			background-color: #4CAF50;
+			/* Green */
+			color: white;
+		}
+
+		/* Hover state */
+		a.button:hover {
+			background-color: white;
+			color: #4CAF50;
+			/* Green */
+		}
+
+		/* Active state (when clicked) */
+		a.button:active {
+			background-color: #45a049;
+			/* Darker green */
+		}
+</style>
+</head>
+<body style="background-color:#D9EEE1 !important;">
+<hr> <hr>
+	<H1 align="center" style="background-color:black ;color:white;">JAY BABAJI HOSPITAL</H1>
+	<hr> 
+		<a class="button" th:href="@{/receptionist}">Homepage</a>
+	<hr>
+	<br>
+	<br>
+	
+<p align = "center">Schedules</p>
+       <br>
+      
+             <hr>
+        <table style="width:100%">
+        <caption>Schedules</caption>
+        
+        <tr>
+            <th>Doctor Name</th>
+            <th>Tittle</th>
+            <th>Description</th>
+            <th>start</th>
+            <th>finish</th>
+        </tr>
+        <tr th:each="event : ${events}">
+            <td th:text="${event.name}"></td>
+          	<td th:text="${event.title}"></td>
+          	<td th:text="${event.description}"></td>
+          	<td th:text="${event.start}"></td>
+          	<td th:text="${event.finish}"></td>
+        </tr>
+    </table>
+</body>
+</html>
