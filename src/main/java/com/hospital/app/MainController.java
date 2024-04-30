@@ -35,8 +35,6 @@ public class MainController {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String username = authentication.getName();
 		model.addAttribute("username", username);
-//		String confirmation ="Your appointment has been successfully booked. ID=";
-//		model.addAttribute("confirmation",confirmation);
 		String id = (String) model.asMap().get("appointmentId");
 		model.addAttribute("appointmentId", id);
 		return "patients";
@@ -122,8 +120,6 @@ public class MainController {
 	public String confirm(@ModelAttribute("appointment") appointment appointment, BindingResult result, ModelMap model,
 			RedirectAttributes redirectAttributes) {
 		System.out.println(appointment);
-		// Optional<com.company.varnaa.appointment> x =
-		// service.get(appointment.getAppointment_id());
 		String confirmation = "confirmed";
 		Integer id = appointment.getAppointment_id();
 		service.setConfirmation(confirmation, id);

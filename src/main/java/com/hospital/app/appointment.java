@@ -15,7 +15,6 @@ import org.hibernate.annotations.DynamicUpdate;
 @DynamicUpdate
 public class appointment {
 
-	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="appointment_id")
